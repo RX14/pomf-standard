@@ -38,6 +38,7 @@ There are several response types, determined by the `output` argument to `upload
 - gyazo
 - text (only some clones)
 - html (only some clones)
+- info
 
 For example `POST upload.php` returns JSON response. `POST upload.php?output=csv` returns CSV response.
 
@@ -108,4 +109,40 @@ A HTML page containing links to uploaded files. This can be formatted and styled
 Example:
 ```html
 <a href="https://your.clone/name.ext">https://your.clone/name.ext</a><br>
+```
+
+## `/upload.php?output=info`
+Returns a JSON object containing machine-readable metadata about the pomf clone.
+
+Schema:
+```js
+{
+    "base_url": string, // URL of the HTML homepage of the pomf clone.
+    "max_size": int, // Maximum file size in bytes.
+    "forbidden_ext": [string], // Array containing forbidden file extensions, without dot.
+    "forbidden_mime": [string], // Array containing forbidden MIME types.
+    "output_modes": [string] // Array containing supported values for the output argument on upload.php.
+}
+```
+
+Example:
+```json
+{
+    "base_url": "https://your.clone",
+    "max_size": 104857600,
+    "forbidden_ext": [
+        "exe",
+        "html",
+        "vbs"
+    ],
+    "forbidden_mime": [
+        ""
+    ],
+    "output_modes": [
+        "json",
+        "gyazo",
+        "csv",
+        "info"
+    ]
+}
 ```
