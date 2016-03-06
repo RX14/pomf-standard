@@ -35,7 +35,7 @@ foo
 There are several response types, determined by the `output` argument to `upload.php`.
 - json (default)
 - csv
-- gyazo
+- gyazo (alias for text)
 - text (only some clones)
 - html (only some clones)
 
@@ -88,18 +88,11 @@ The server should respond with a CSV document listing name, url, hash and size o
 "your_file.ext","https://your.clone/abcde.ext","06c8103e3e2c1659fd5831fb83d78a4b0a869b23","73483"
 ```
 
-#### Gyazo Response
+#### Text Response
 The server responds with complete URLs to uploaded files, in the order they are uploaded, seperated by newlines, with a trailing newline. `Content-Type` should be `text/plain`.
 ```text
 https://your.clone/abcde.ext
 https://your.clone/fghij.ext
-```
-
-#### Text Response
-//TODO: discuss more
-The server responds with 
-```text
-your_file.ext: https://your.clone/abcde.ext
 ```
 
 #### HTML Response
