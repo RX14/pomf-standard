@@ -4,15 +4,32 @@ Pomf Standardisation
 ## TODO
 
 - DEL Requests & deletion keys.
-- Full URL or just generated file name.
 - Standardized file expiry //default will be forever
 - Searching?
+- Max file size discovery
 
 ## `/upload.php`
 This is the main entry point for uploading files in the API.
 
+[An example of a complete request/response to a popular clone](https://aww.moe/p6low0.png)
+
 ### Request
-//TODO
+A `POST` request is sent to `/upload.php` as `multipart/form-data`. The files to be uploaded are callled `files[]`.
+
+Example, uploading 2 files, one called `foo` containing `bar\n` and the other called `bar` containing `foo\n`:
+```
+--052b045b431e4118948c02fbadbd057a
+Content-Disposition: form-data; name="files[]"; filename="foo"
+
+bar
+
+--052b045b431e4118948c02fbadbd057a
+Content-Disposition: form-data; name="files[]"; filename="bar"
+
+foo
+
+--052b045b431e4118948c02fbadbd057a--
+```
 
 ### Response
 There are several response types, determined by the `output` argument to `upload.php`.
