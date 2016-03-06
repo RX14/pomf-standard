@@ -110,7 +110,7 @@ Example:
 <a href="https://your.clone/name.ext">https://your.clone/name.ext</a><br>
 ```
 
-## `/upload.php?output=info`
+## `/info.json`
 Returns a JSON object containing machine-readable metadata about the pomf clone.
 
 Schema:
@@ -120,7 +120,7 @@ Schema:
     "max_size": int, // Maximum file size in bytes.
     "forbidden_ext": [string], // Array containing forbidden file extensions, without dot.
     "forbidden_mime": [string], // Array containing forbidden MIME types.
-    "output_modes": [string] // Array containing supported values for the output argument on upload.php. Do not include info.
+    "output_modes": [string] // Array containing supported values for the output argument on upload.php. 
 }
 ```
 
