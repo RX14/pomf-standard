@@ -38,7 +38,6 @@ There are several response types, determined by the `output` argument to `upload
 - gyazo
 - text (only some clones)
 - html (only some clones)
-- info
 
 For example `POST upload.php` returns JSON response. `POST upload.php?output=csv` returns CSV response.
 
@@ -121,7 +120,7 @@ Schema:
     "max_size": int, // Maximum file size in bytes.
     "forbidden_ext": [string], // Array containing forbidden file extensions, without dot.
     "forbidden_mime": [string], // Array containing forbidden MIME types.
-    "output_modes": [string] // Array containing supported values for the output argument on upload.php.
+    "output_modes": [string] // Array containing supported values for the output argument on upload.php. Do not include info.
 }
 ```
 
@@ -136,13 +135,15 @@ Example:
         "vbs"
     ],
     "forbidden_mime": [
-        ""
+        "application/x-dosexec",
+        "application/x-msdos-program",
+        "application/x-msdownload",
+        "application/x-silverlight"
     ],
     "output_modes": [
         "json",
         "gyazo",
-        "csv",
-        "info"
+        "csv"
     ]
 }
 ```
