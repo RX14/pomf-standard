@@ -91,7 +91,7 @@ The server should respond with a CSV document listing name, url, hash and size o
 
 #### Gyazo Response
 The server responds with complete URLs to uploaded files, in the order they are uploaded, seperated by newlines, with a trailing newline. `Content-Type` should be `text/plain`.
-```
+```text
 https://your.clone/abcde.ext
 https://your.clone/fghij.ext
 ```
@@ -99,7 +99,7 @@ https://your.clone/fghij.ext
 #### Text Response
 //TODO: discuss more
 The server responds with 
-```
+```text
 your_file.ext: https://your.clone/abcde.ext
 ```
 
